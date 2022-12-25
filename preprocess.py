@@ -2,10 +2,10 @@ from pymystem3 import Mystem
 from nltk.tokenize import TweetTokenizer
 from nltk.corpus import stopwords
 
+tokenizer = TweetTokenizer()
+m = Mystem()
+    
 def preprocess(text):
-
-    tokenizer = TweetTokenizer()
-    m = Mystem()
 
     def tokeniz(text): return ' '.join(tokenizer.tokenize(text.lower()))
 
@@ -39,7 +39,7 @@ def preprocess(text):
     return text
 
 def fill_na(row):
-
+    
     if isinstance(row['processed'], float):
         return preprocess(row['title'])
     else:
