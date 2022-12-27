@@ -4,10 +4,11 @@ from nltk.corpus import stopwords
 
 tokenizer = TweetTokenizer()
 m = Mystem()
-    
-def preprocess(text):
 
-    def tokeniz(text): return ' '.join(tokenizer.tokenize(text.lower()))
+
+def preprocess(text):
+    def tokeniz(text):
+        return ' '.join(tokenizer.tokenize(text.lower()))
 
     stop_words = set(stopwords.words('russian'))
 
@@ -38,8 +39,8 @@ def preprocess(text):
 
     return text
 
+
 def fill_na(row):
-    
     if isinstance(row['processed'], float):
         return preprocess(row['title'])
     else:
